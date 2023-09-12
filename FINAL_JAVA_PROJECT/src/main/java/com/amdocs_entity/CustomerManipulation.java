@@ -2,12 +2,16 @@ package com.amdocs_entity;
 
 import java.util.Scanner;
 
+import com.amdocs.exception.SystemException;
+
 public class CustomerManipulation {
 	 private Scanner sc= new Scanner(System.in);
 	 Customer customer;
 	 public Customer takeInput()
 	 {
+		 
 		 customer =new Customer();
+		 try {
 		 
 		 System.out.println("Please Enter your First Name");
 		 String firstName=sc.nextLine();
@@ -28,7 +32,11 @@ public class CustomerManipulation {
 		 System.out.println("Please Enter your remark");
 		 String remark=sc.nextLine();
 		 customer.setRemark(remark);
-		 	 
+		 }catch(NumberFormatException e) {
+			 System.out.println("Invalid Input");
+		 }
+			 
+		 
 		 return customer;
  
 	 }
